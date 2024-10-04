@@ -63,6 +63,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version> <!-- Ensure at least version 3.11.0 -->
+				<configuration>
+					<source>21</source> <!-- Ensure source is 21 -->
+					<target>21</target> <!-- Ensure target is 21 -->
+				</configuration>
+        	</plugin>
 		</plugins>
 	</build>
 
