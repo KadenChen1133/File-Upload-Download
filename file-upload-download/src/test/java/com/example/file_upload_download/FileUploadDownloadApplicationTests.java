@@ -3,7 +3,7 @@ package com.example.file_upload_download;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(classes = FileUploadDownloadApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class FileUploadDownloadApplicationTests {
 
 	@Test
