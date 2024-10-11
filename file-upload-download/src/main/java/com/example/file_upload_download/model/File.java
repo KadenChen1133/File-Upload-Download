@@ -15,6 +15,21 @@ public class File {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
 
+    private User user;
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
