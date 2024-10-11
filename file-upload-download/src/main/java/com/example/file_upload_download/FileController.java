@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.file_upload_download.model.File;
+import com.example.file_upload_download.model.FileEntity;
 import com.example.file_upload_download.model.User;
 import com.example.file_upload_download.repository.FileRepository;
 import com.example.file_upload_download.repository.UserRepository;
@@ -51,7 +51,7 @@ public class FileController {
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
             // Create and save a File entity associated with the user
-            File newFile = new File();
+            FileEntity newFile = new FileEntity();
             newFile.setFileName(file.getOriginalFilename());
             newFile.setUser(user);
             fileRepository.save(newFile);
@@ -70,7 +70,7 @@ public class FileController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
             // Check if the file belongs to the logged-in user
-            Optional<File> fileOptional = fileRepository.findByFileNameAndUser(fileName, user);
+            Optional<FileEntity> fileOptional = fileRepository.findByFileNameAndUser(fileName, user);
 
             if (fileOptional.isPresent()) {
                 Path filePath = fileStorageLocation.resolve(fileName).normalize();

@@ -2,7 +2,6 @@ package com.example.file_upload_download.model;
 
 import jakarta.persistence.*;
 
-import java.io.File;
 import java.util.List;
 
 @Entity
@@ -20,7 +19,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<File> files;
+    private List<FileEntity> files;
 
     public String getUsername() {
         // TODO Auto-generated method stub
